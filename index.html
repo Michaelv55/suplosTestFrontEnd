@@ -7,6 +7,7 @@
   <link type="text/css" rel="stylesheet" href="css/customColors.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/ion.rangeSlider.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/properties.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,7 +22,7 @@
       <h1>Bienes Intelcost</h1>
     </div>
     <div class="colFiltros">
-      <form action="#" method="post" id="formulario">
+      <form action="#" method="post" id="formulario" onsubmit="return false">
         <div class="filtrosContenido">
           <div class="tituloFiltros">
             <h5>Filtros</h5>
@@ -60,6 +61,9 @@
             <h5>Resultados de la búsqueda:</h5>
             <div class="divider"></div>
             <div id="propertyList"></div>
+            <a class="btn-floating" id="previousPage"><i class="material-icons">arrow_back</i></a>
+            <p id="pagerInfo"></p>
+            <a class="btn-floating" id="nextPage"><i class="material-icons">arrow_forward</i></a>
           </div>
         </div>
       </div>
@@ -79,10 +83,11 @@
     
     <script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/GeneralData.js"></script>
+    <script type="text/javascript" src="js/Pager.js"></script>
+    <script type="text/javascript" src="js/Seeker.js"></script>
     <script type="text/javascript" src="js/Propertie.js"></script>
-    <script type="text/javascript" src="js/buscador.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">
       $( document ).ready(function() {

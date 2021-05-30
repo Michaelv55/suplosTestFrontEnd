@@ -1,3 +1,7 @@
+const generalData = new GeneralData();
+const filter = new Seeker();
+const pager = new Pager();
+
 /*
   Creación de una función personalizada para jQuery que detecta cuando se detiene el scroll en la página
 */
@@ -48,5 +52,23 @@ function playVideoOnScroll(){
     }, 10)
 }
 
+/**
+ * Carga los valores de los filtros de ciudad y tipo
+ */
+function loadFilters(){
+  generalData.cities.forEach(element => {
+    $('#selectCiudad').append('<option value="'+element+'">'+element+'</option>');
+  });
+  generalData.types.forEach(element => {
+    $('#selectTipo').append('<option value="'+element+'">'+element+'</option>');
+  });
+}
+
+$('#submitButton').on('click', function(){
+  pager.constructPager(filter.searchData());
+});
+
 inicializarSlider();
 playVideoOnScroll();
+loadFilters();
+$('#submitButton').click();
