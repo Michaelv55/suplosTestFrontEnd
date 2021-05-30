@@ -29,8 +29,8 @@ class Pager{
             this.disabledNextpage();
         }else{
             this.endList = oldEnd+5;
-            this.enabledPreviousPage();
         }
+        this.enabledPreviousPage();
         this.constructPager(this.data, false);
     }
 

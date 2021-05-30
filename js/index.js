@@ -69,6 +69,6 @@ $('#submitButton').on('click', function(){
 });
 
 inicializarSlider();
-playVideoOnScroll();
+// playVideoOnScroll();
 loadSeeker();
 $('#submitButton').click();

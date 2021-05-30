@@ -30,10 +30,11 @@ class Seeker{
                 element.Precio
             );
             if(property.priceInt >= filters.minPrice  && property.priceInt <= filters.maxPrice){
-                if(filters.city == '' && filters.type == ''){ 
+                let cityCond = (filters.city == property.city || filters.city == '');
+                let typeCond = (filters.type == property.type || filters.type == '');
+                if(cityCond && typeCond){ 
                     dataReturn.push(property); 
                 }
-
             }
         });
         return dataReturn;
