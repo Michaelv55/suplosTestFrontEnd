@@ -1,5 +1,5 @@
 const generalData = new GeneralData();
-const filter = new Seeker();
+const seeker = new Seeker();
 const pager = new Pager();
 
 /*
@@ -55,7 +55,7 @@ function playVideoOnScroll(){
 /**
  * Carga los valores de los filtros de ciudad y tipo
  */
-function loadFilters(){
+function loadSeeker(){
   generalData.cities.forEach(element => {
     $('#selectCiudad').append('<option value="'+element+'">'+element+'</option>');
   });
@@ -65,10 +65,10 @@ function loadFilters(){
 }
 
 $('#submitButton').on('click', function(){
-  pager.constructPager(filter.searchData());
+  pager.constructPager(seeker.searchData(), true);
 });
 
 inicializarSlider();
 playVideoOnScroll();
-loadFilters();
+loadSeeker();
 $('#submitButton').click();

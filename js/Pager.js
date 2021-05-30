@@ -31,7 +31,7 @@ class Pager{
             this.endList = oldEnd+5;
             this.enabledPreviousPage();
         }
-        this.constructPager(this.data);
+        this.constructPager(this.data, false);
     }
 
     disabledNextpage(){
@@ -59,7 +59,7 @@ class Pager{
         if(this.startList==0){
             this.disabledPreviousPage();
         }
-        this.constructPager(this.data);
+        this.constructPager(this.data, false);
     }
 
     disabledPreviousPage(){
@@ -72,9 +72,20 @@ class Pager{
         this.previousPagebtn.css('cursor', 'pointer');
     }
 
-    constructPager(properties){
+    constructPager(properties, newSearch){
         this.clearContainer();
         this.data = properties;
+        if(newSearch){
+            this.startList=0;
+            this.endList=5;
+            this.disabledPreviousPage();
+            if(this.data.length <= this.endList){
+                this.endList=this.data.length;
+                this.disabledNextpage();
+            }else{
+                this.enabledNextpage();
+            }
+        }
         for (let i = this.startList; i < this.endList; i++) {
             this.container.append(this.data[i].constructHtml());
         }
