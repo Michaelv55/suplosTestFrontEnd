@@ -1,0 +1,20 @@
+.property>.textContainer{
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.property>img {
+    width             : 25vw;
+    -webkit-box-shadow: 0px -5px 20px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow   : 0px -5px 20px 1px rgba(0, 0, 0, 0.15);
+    box-shadow        : 0px -5px 20px 1px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+}
+
+.property>.textContainer>ul>li>.titleText{
+    font-weight: 600;
+}
+
+.property>.textContainer>ul>li>.textInfo{
+    display: inline-block;
+}
