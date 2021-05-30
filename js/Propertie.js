@@ -1,11 +1,28 @@
 class Propertie{
 
-    constructor(idProperty){
-        this.id = idProperty;
+    constructor(id, address, city, phone, postalCode, type, price){
+        this.id = id;
+        this.address = address;
+        this.city = city;
+        this.phone = phone;
+        this.postalCode = postalCode;
+        this.type = type;
+        this.price = price;
     }
 
-    get data(){
-        return generalData.getById(this.id);
+    refreshData(){
+        let data = generalData.getById(this.id);
+        this.id = data.Id;
+        this.address = data.Direccion;
+        this.city = data.Ciudad;
+        this.phone = data.Telefono;
+        this.postalCode = data.Codigo_Postal;
+        this.type = data.Tipo;
+        this.price = data.Precio;
+    }
+
+    get priceInt(){
+        return this.price.replace(/\D/g, '');
     }
 
     get imageHtml(){
@@ -13,17 +30,16 @@ class Propertie{
     }
 
     get listHtml(){
-        var data = this.data;
-        var keys = Object.keys(data);
+        var keys = Object.keys(this);
 
         var list = '<ul>';
         keys.forEach(element => {
             list += '<li>';
-            list += '<label class="titleText">'+element+': <label/>';
-            list += '<p class="textInfo">'+data[element]+'<p/>';
-            list += '<li/>';
+            list += '<label class="titleText">'+element+': </label>';
+            list += '<p class="textInfo">'+this[element]+'</p>';
+            list += '</li>';
         });
-        list += '<ul/>';
+        list += '</ul>';
         return list;
     }
 
@@ -32,5 +48,6 @@ class Propertie{
         html += this.imageHtml;
         html += '<div class="textContainer">'+this.listHtml+'<div/>';
         html += '</div>';
+        return html;
     }
 }
