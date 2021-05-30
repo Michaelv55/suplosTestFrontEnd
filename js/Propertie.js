@@ -1,5 +1,14 @@
 class Propertie{
 
+    vars = {
+        'address':'Dirección',
+        'city':'Ciudad',
+        'phone':'Teléfono',
+        'postalCode':'Código postal',
+        'type':'Tipo',
+        'price':'Precio',
+    };
+
     constructor(id, address, city, phone, postalCode, type, price){
         this.id = id;
         this.address = address;
@@ -19,6 +28,7 @@ class Propertie{
         this.postalCode = data.Codigo_Postal;
         this.type = data.Tipo;
         this.price = data.Precio;
+        return this;
     }
 
     get priceInt(){
@@ -30,12 +40,12 @@ class Propertie{
     }
 
     get listHtml(){
-        var keys = Object.keys(this);
+        var keys = Object.keys(this.vars);
 
         var list = '<ul>';
         keys.forEach(element => {
             list += '<li>';
-            list += '<label class="titleText">'+element+': </label>';
+            list += '<label class="titleText">'+this.vars[element]+': </label>';
             list += '<p class="textInfo">'+this[element]+'</p>';
             list += '</li>';
         });

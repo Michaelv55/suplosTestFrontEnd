@@ -8,6 +8,7 @@
 .property>.textContainer{
     display: inline-block;
     margin-left: 8px;
+    vertical-align: bottom;
 }
 
 .property>img {
@@ -47,11 +48,10 @@
         height: 13vw;
     }
   }
-  
-
 
 .property>.textContainer>ul>li>.titleText{
     font-weight: 600;
+    color: black;
 }
 
 .property>.textContainer>ul>li>.textInfo{
