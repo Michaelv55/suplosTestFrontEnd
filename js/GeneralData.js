@@ -1,9 +1,5 @@
 class GeneralData {
 
-    constructor() {
-
-    }
-
     /**
      * Siempre se obtienen los datos siempre a través de una peticó síncrona 
      *  para mantener la información actualizada y evitar una poisble modificaicón de los datos
@@ -20,6 +16,24 @@ class GeneralData {
             }
         });
         return allData;
+    }
+
+    get cities(){
+        return this.getUnique('Ciudad');
+    }
+
+    get types(){
+        return this.getUnique('Tipo');
+    }
+
+    getUnique(index){
+        const uniqueValues = [];
+        this.data.forEach( (element) => {
+            if (!uniqueValues.includes(element[index])) {
+                uniqueValues.push(element[index]);
+            }
+        });
+        return uniqueValues;
     }
 
     getById(id){
