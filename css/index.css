@@ -91,7 +91,7 @@ video#vidFondo {
   color: #648C7D;
 }
 .colContenido{
-  width: 75%;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   align-content: space-between;
@@ -108,9 +108,9 @@ video#vidFondo {
 }
 .tituloContenido h5{
   width: 100%;
-  margin: 0.5rem 5px;
-  margin-bottom: 2rem;
-  height: 10px;
+  margin: 0.5rem;
+  /* margin-bottom: 2rem; */
+  /* height: 10px; */
   font-size: 2rem;
 }
 
@@ -142,4 +142,7 @@ video#vidFondo {
 }
 .card-action{
   text-align: right;
+}
+.no-select{
+  user-select: none;
 }

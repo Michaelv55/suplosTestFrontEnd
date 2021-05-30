@@ -8,7 +8,7 @@ class Pager{
         this.startList = 0;
         this.endList = 5;
         this.setEvents();
-        this.previousPagebtn.hide()
+        this.disabledPreviousPage();
     }
 
     setEvents(){
@@ -26,12 +26,22 @@ class Pager{
         this.startList = oldEnd;
         if((oldEnd+5)>this.data.length){
             this.endList = this.data.length;
-            this.nextPageBtn.hide();
+            this.disabledNextpage();
         }else{
             this.endList = oldEnd+5;
-            this.previousPagebtn.show();
+            this.enabledPreviousPage();
         }
         this.constructPager(this.data);
+    }
+
+    disabledNextpage(){
+        this.nextPageBtn.css('pointer-events', 'none');
+        this.nextPageBtn.css('cursor', 'default');
+    }
+
+    enabledNextpage(){
+        this.nextPageBtn.css('pointer-events', '');
+        this.nextPageBtn.css('cursor', 'pointer');
     }
 
     previousPage(){
@@ -41,18 +51,25 @@ class Pager{
         if(oldEnd == this.data.length){
             this.startList = oldStart-5;
             this.endList = oldStart;
-            this.nextPageBtn.show();
+            this.enabledNextpage();
         }else{
             this.startList = oldStart-5;
             this.endList = oldEnd-5;            
         }
-
-        if(oldStart == 5){
-            this.previousPagebtn.hide();
-        }else{
-            this.previousPagebtn.show();
+        if(this.startList==0){
+            this.disabledPreviousPage();
         }
         this.constructPager(this.data);
+    }
+
+    disabledPreviousPage(){
+        this.previousPagebtn.css('pointer-events', 'none');
+        this.previousPagebtn.css('cursor', 'default');
+    }
+
+    enabledPreviousPage(){
+        this.previousPagebtn.css('pointer-events', '');
+        this.previousPagebtn.css('cursor', 'pointer');
     }
 
     constructPager(properties){

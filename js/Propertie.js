@@ -26,7 +26,7 @@ class Propertie{
     }
 
     get imageHtml(){
-        return '<img src="./img/home.jpg" alt="home image" />';
+        return '<img src="./img/home.jpg" alt="home image" class="responsive-img no-select"/>';
     }
 
     get listHtml(){

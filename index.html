@@ -8,6 +8,7 @@
   <link type="text/css" rel="stylesheet" href="css/ion.rangeSlider.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/properties.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="css/pager.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/index.css"  media="screen,projection"/>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -58,12 +59,14 @@
       <div id="tabs-1">
         <div class="colContenido" id="divResultadosBusqueda">
           <div class="tituloContenido card" style="justify-content: center;">
-            <h5>Resultados de la búsqueda:</h5>
+            <h5 class="truncate">Resultados de la búsqueda:</h5>
             <div class="divider"></div>
             <div id="propertyList"></div>
-            <a class="btn-floating" id="previousPage"><i class="material-icons">arrow_back</i></a>
-            <p id="pagerInfo"></p>
-            <a class="btn-floating" id="nextPage"><i class="material-icons">arrow_forward</i></a>
+            <div class="row" id="pagerContainer">
+              <div class="col s4 center-align"><a class="btn-floating no-select" id="previousPage"><i class="material-icons">arrow_back</i></a></div>
+              <div class="col s4 center-align"><p id="pagerInfo" class="no-select"></p></div>
+              <div class="col s4 center-align"><a class="btn-floating no-select" id="nextPage"><i class="material-icons">arrow_forward</i></a></div>
+            </div>
           </div>
         </div>
       </div>

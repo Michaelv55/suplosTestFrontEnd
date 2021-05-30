@@ -1,15 +1,54 @@
+#propertyList{
+    width: 100%;
+    margin: 6px;
+}
+.property{
+    border-bottom: 1px solid #e0e0e0;
+}
 .property>.textContainer{
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 8px;
 }
 
 .property>img {
-    width             : 25vw;
+    width : 16vw;
+    height: 9vw;
+    margin-top: 10px;
     -webkit-box-shadow: 0px -5px 20px 1px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow   : 0px -5px 20px 1px rgba(0, 0, 0, 0.15);
-    box-shadow        : 0px -5px 20px 1px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px -5px 20px 1px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px -5px 20px 1px rgba(0, 0, 0, 0.15);
     display: inline-block;
 }
+
+@media screen and (max-width: 576px) {
+    .property>img{
+        width: 40vw;
+        height: 25vw;
+    }
+  }
+  
+  @media screen and (max-width: 768px) and (min-width:576px) {
+    .property>img{
+        width: 40vw;
+        height: 25vw;
+    }
+  }
+  
+  @media screen and (max-width: 960px) and (min-width:768px) {
+    .property>img{
+        width: 40vw;
+        height: 25vw;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) and (min-width:960px) {
+    .property>img{
+        width: 20vw;
+        height: 13vw;
+    }
+  }
+  
+
 
 .property>.textContainer>ul>li>.titleText{
     font-weight: 600;
@@ -17,4 +56,5 @@
 
 .property>.textContainer>ul>li>.textInfo{
     display: inline-block;
+    margin: 3px;
 }
