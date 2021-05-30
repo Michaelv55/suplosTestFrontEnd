@@ -1,0 +1,1 @@
+const generalData = new GeneralData();
