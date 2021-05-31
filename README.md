@@ -5,7 +5,9 @@ Se crea este repositorio para tener separado tanto el back como el front y poder
 Para una correcta ejecución de la aplicación es recomendable trabajar con el servior apache (se utilizó xammp) y trabajar en una misma carpeta en la cual hayan dos subcarpetas llamadas BackEnd y FontEnd de tal modo que la estructura de carpetas sería:
 
 \xampp\htdocs\SuplosTest\
+
   BackEnd\\
+  
   FontEnd\
   
 repositorio del BackEnd : https://github.com/Michaelv55/suplosTestBackEnd
