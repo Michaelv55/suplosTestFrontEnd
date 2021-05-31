@@ -1,5 +1,6 @@
 const generalData = new GeneralData();
-const seeker = new Seeker();
+const seeker = new Seeker('selectCiudad', 'selectTipo', 'rangoPrecio');
+const seeker2 = new Seeker('selectCiudad2', 'selectTipo2', 'rangoPrecio');
 const pager = new Pager('propertyList', 'nextPage', 'previousPage', 'pagerInfo', true);
 const pager2 = new Pager('propertyList2', 'nextPage2', 'previousPage2', 'pagerInfo2', false);
 const phpApi = new PhpApi();
@@ -87,10 +88,6 @@ $("[href='#tabs-2']").on('click', function () {
     });
     pager2.constructPager(properties, true, false);
   });
-});
-
-$("[href='#tabs-2']").on('click', function () {
-  // loadSeeker();
 });
 
 inicializarSlider();

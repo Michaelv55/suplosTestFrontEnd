@@ -1,8 +1,8 @@
 class Seeker{
 
-    constructor(){
-        this.cities = $('#selectCiudad');
-        this.types = $('#selectTipo');
+    constructor(city, type){
+        this.cities = $('#'+city);
+        this.types = $('#'+type);
         this.priceRange = $('#rangoPrecio');
     }
 
