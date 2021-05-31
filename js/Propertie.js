@@ -53,18 +53,30 @@ class Propertie{
         return list;
     }
 
-    get button(){
-        let button = '<button class="btn waves-effect waves-light" type="submit" name="action">Guardar';
+    getButton(save){
+        let button = '<button class="btn waves-effect waves-light" ';
+        var buttonSave = 'onclick="phpApi.save('+this.id+')">Guardar';
+        var buttonDelete = 'onclick="phpApi.delete('+this.id+')">Eliminar';
+        button += ((save)?buttonSave:buttonDelete);
         button += '<i class="material-icons right">cloud</i></button>';
         return button;
     }
 
-    constructHtml(){
+    constructHtml(save){
         var html = '<div class="property" id="property'+this.id+'">';
         html += this.imageHtml;
         html += '<div class="textContainer">'+this.listHtml+'<div/>';
         html += '</div>';
-        html += '<div class="buttonContainer">'+this.button+'<div/>';
+        html += '<div class="buttonContainer">'+this.getButton(save)+'<div/>';
         return html;
+    }
+
+    toUrlParams(){
+        var keys = Object.keys(this.vars);
+        var urlParams = '';
+        keys.forEach(element => {
+            urlParams+=element+'='+this[element].replace('#', 'N')+'&';
+        });
+        return urlParams;
     }
 }

@@ -55,14 +55,15 @@
       <ul>
         <li><a href="#tabs-1">Bienes disponibles</a></li>
         <li><a href="#tabs-2">Mis bienes</a></li>
+        <li><a href="#tabs-3">Mis bienes</a></li>
       </ul>
       <div id="tabs-1">
         <div class="colContenido" id="divResultadosBusqueda">
           <div class="tituloContenido card" style="justify-content: center;">
             <h5 class="truncate">Resultados de la búsqueda:</h5>
             <div class="divider"></div>
-            <div id="propertyList"></div>
-            <div class="row" id="pagerContainer">
+            <div id="propertyList" class="propertyList"></div>
+            <div class="row" id="pagerContainer" class="pagerContainer">
               <div class="col s4 center-align"><a class="btn-floating no-select" id="previousPage"><i class="material-icons">arrow_back</i></a></div>
               <div class="col s4 center-align"><p id="pagerInfo" class="no-select"></p></div>
               <div class="col s4 center-align"><a class="btn-floating no-select" id="nextPage"><i class="material-icons">arrow_forward</i></a></div>
@@ -76,6 +77,12 @@
           <div class="tituloContenido card" style="justify-content: center;">
             <h5>Bienes guardados:</h5>
             <div class="divider"></div>
+            <div id="propertyList2" class="propertyList"></div>
+            <div class="row" id="pagerContainer2">
+              <div class="col s4 center-align"><a class="btn-floating no-select" id="previousPage2"><i class="material-icons">arrow_back</i></a></div>
+              <div class="col s4 center-align"><p id="pagerInfo2" class="no-select"></p></div>
+              <div class="col s4 center-align"><a class="btn-floating no-select" id="nextPage2"><i class="material-icons">arrow_forward</i></a></div>
+            </div>
           </div>
         </div>
       </div>
@@ -90,6 +97,7 @@
     <script type="text/javascript" src="js/Pager.js"></script>
     <script type="text/javascript" src="js/Seeker.js"></script>
     <script type="text/javascript" src="js/Propertie.js"></script>
+    <script type="text/javascript" src="js/PhpApi.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript">

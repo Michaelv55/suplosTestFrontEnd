@@ -1,12 +1,13 @@
 class Pager{
 
-    constructor(){
-        this.container = $('#propertyList');
-        this.nextPageBtn = $('#nextPage');
-        this.previousPagebtn = $('#previousPage');
-        this.pagerInfo = $('#pagerInfo');
+    constructor(container, nextPage, previousPage, pagerInfo, save){
+        this.container = $('#'+container);
+        this.nextPageBtn = $('#'+nextPage);
+        this.previousPagebtn = $('#'+previousPage);
+        this.pagerInfo = $('#'+pagerInfo);
         this.startList = 0;
         this.endList = 5;
+        this.save = save;
         this.setEvents();
         this.disabledPreviousPage();
     }
@@ -87,7 +88,7 @@ class Pager{
             }
         }
         for (let i = this.startList; i < this.endList; i++) {
-            this.container.append(this.data[i].constructHtml());
+            this.container.append(this.data[i].constructHtml(this.save));
         }
         this.setTextPagerInfo();
     }
