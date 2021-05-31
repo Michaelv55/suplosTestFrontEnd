@@ -53,11 +53,18 @@ class Propertie{
         return list;
     }
 
+    get button(){
+        let button = '<button class="btn waves-effect waves-light" type="submit" name="action">Guardar';
+        button += '<i class="material-icons right">cloud</i></button>';
+        return button;
+    }
+
     constructHtml(){
         var html = '<div class="property" id="property'+this.id+'">';
         html += this.imageHtml;
         html += '<div class="textContainer">'+this.listHtml+'<div/>';
         html += '</div>';
+        html += '<div class="buttonContainer">'+this.button+'<div/>';
         return html;
     }
 }
