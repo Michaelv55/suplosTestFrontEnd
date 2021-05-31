@@ -1,7 +1,7 @@
 const generalData = new GeneralData();
 const seeker = new Seeker();
-const pager = new Pager('propertyList','nextPage','previousPage','pagerInfo', true);
-const pager2 = new Pager('propertyList2','nextPage2','previousPage2','pagerInfo2', false);
+const pager = new Pager('propertyList', 'nextPage', 'previousPage', 'pagerInfo', true);
+const pager2 = new Pager('propertyList2', 'nextPage2', 'previousPage2', 'pagerInfo2', false);
 const phpApi = new PhpApi();
 /*
   Creación de una función personalizada para jQuery que detecta cuando se detiene el scroll en la página
@@ -58,10 +58,10 @@ function playVideoOnScroll() {
  */
 function loadSeeker() {
   generalData.cities.forEach(element => {
-    $('#selectCiudad').append('<option value="' + element + '">' + element + '</option>');
+    $('.selectCiudad').append('<option value="' + element + '">' + element + '</option>');
   });
   generalData.types.forEach(element => {
-    $('#selectTipo').append('<option value="' + element + '">' + element + '</option>');
+    $('.selectTipo').append('<option value="' + element + '">' + element + '</option>');
   });
 }
 
@@ -89,7 +89,50 @@ $("[href='#tabs-2']").on('click', function () {
   });
 });
 
+$("[href='#tabs-2']").on('click', function () {
+  // loadSeeker();
+});
+
 inicializarSlider();
 // playVideoOnScroll();
 loadSeeker();
 $('#submitButton').click();
+
+function DownloadJSON2CSV(objArray) {
+  var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+
+  var str = '';
+
+  for (var i = 0; i < array.length; i++) {
+
+
+    var line = new Array();
+
+    for (var index in array[i]) {
+      if(typeof array[i][index] == 'object'){
+        continue;
+      }
+      line.push('"' + array[i][index] + '"');
+    }
+
+    str += line.join(';');
+    str += '\r\n';
+  }
+
+  var blob = new Blob([str], { type: 'text/csv;charset=utf-8;' });
+  if (navigator.msSaveBlob) { // IE 10+
+    navigator.msSaveBlob(blob, filename);
+  } else {
+    var link = document.createElement("a");
+    if (link.download !== undefined) { // feature detection
+      // Browsers that support HTML5 download attribute
+      var url = URL.createObjectURL(blob);
+      link.setAttribute("href", url);
+      link.setAttribute("download", 'report.csv');
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }
+}

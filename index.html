@@ -30,14 +30,14 @@
           </div>
           <div class="filtroCiudad input-field">
             <p><label for="selectCiudad">Ciudad:</label><br></p>
-            <select name="ciudad" id="selectCiudad">
+            <select name="ciudad" id="selectCiudad" class="selectCiudad">
               <option value="" selected>Elige una ciudad</option>
             </select>
           </div>
           <div class="filtroTipo input-field">
             <p><label for="selecTipo">Tipo:</label></p>
             <br>
-            <select name="tipo" id="selectTipo">
+            <select name="tipo" id="selectTipo" class="selectTipo">
               <option value="">Elige un tipo</option>
             </select>
           </div>
@@ -55,7 +55,7 @@
       <ul>
         <li><a href="#tabs-1">Bienes disponibles</a></li>
         <li><a href="#tabs-2">Mis bienes</a></li>
-        <li><a href="#tabs-3">Mis bienes</a></li>
+        <li><a href="#tabs-3">Reporte</a></li>
       </ul>
       <div id="tabs-1">
         <div class="colContenido" id="divResultadosBusqueda">
@@ -86,6 +86,35 @@
           </div>
         </div>
       </div>
+
+      <div id="tabs-3" >
+        <div class="colContenido" id="divCsv">
+          <div class="tituloContenido card" style="justify-content: center;">
+            <h5>Reporte</h5>
+            <div class="divider"></div>
+            <div class="row">
+
+              <div class="filtroCiudad input-field">
+                <p><label for="selectCiudad">Ciudad:</label><br></p>
+                <select name="ciudad" class="selectCiudad">
+                  <option value="" selected>Elige una ciudad</option>
+                </select>
+              </div>
+
+              <div class="filtroCiudad input-field">
+                <p><label for="selectCiudad">Ciudad:</label><br></p>
+                <select name="ciudad" class="selectTipo">
+                  <option value="" selected>Elige una ciudad</option>
+                </select>
+              </div>
+
+              <a class="waves-effect waves-light btn" onclick="DownloadJSON2CSV(seeker.searchData(true))">Generar Excel</a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
 

@@ -16,7 +16,7 @@ class Seeker{
         };
     }
 
-    searchData(){
+    searchData(toExcel){
         const filters = this.filters;
         const dataReturn = [];
         generalData.data.forEach(element => {
@@ -29,7 +29,7 @@ class Seeker{
                 element.Tipo,
                 element.Precio
             );
-            if(property.priceInt >= filters.minPrice  && property.priceInt <= filters.maxPrice){
+            if(property.priceInt >= filters.minPrice  && property.priceInt <= filters.maxPrice || toExcel){
                 let cityCond = (filters.city == property.city || filters.city == '');
                 let typeCond = (filters.type == property.type || filters.type == '');
                 if(cityCond && typeCond){ 
