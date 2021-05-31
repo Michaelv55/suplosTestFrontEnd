@@ -1,3 +1,6 @@
+/**
+ * Paginador
+ */
 class Pager{
 
     constructor(container, nextPage, previousPage, pagerInfo, save){
@@ -12,6 +15,9 @@ class Pager{
         this.disabledPreviousPage();
     }
 
+    /**
+     * Establece los eventos necesarios para avanzar y retoceder la página
+     */
     setEvents(){
         var that = this;
         this.nextPageBtn.on('click', function(){
@@ -22,6 +28,9 @@ class Pager{
         });
     }
 
+    /**
+     * Avánza a la siguiete página
+     */
     nextPage(){
         let oldEnd = this.endList;
         this.startList = oldEnd;
@@ -35,16 +44,25 @@ class Pager{
         this.constructPager(this.data, false);
     }
 
+    /**
+     * Deshabilita el botó para avanzar a la siguiente página
+     */
     disabledNextpage(){
         this.nextPageBtn.css('pointer-events', 'none');
         this.nextPageBtn.css('cursor', 'default');
     }
 
+    /**
+     * Habilita el botó para avanzar a la siguiente página
+     */
     enabledNextpage(){
         this.nextPageBtn.css('pointer-events', '');
         this.nextPageBtn.css('cursor', 'pointer');
     }
 
+    /**
+     * Retrocede a la página anterior
+     */
     previousPage(){
         let oldStart = this.startList;
         let oldEnd = this.endList;
@@ -63,16 +81,27 @@ class Pager{
         this.constructPager(this.data, false);
     }
 
+    /**
+     * Deshabilita el botón para retreceder la página
+     */
     disabledPreviousPage(){
         this.previousPagebtn.css('pointer-events', 'none');
         this.previousPagebtn.css('cursor', 'default');
     }
 
+    /**
+     * Habilita el botón para retoceder la página
+     */
     enabledPreviousPage(){
         this.previousPagebtn.css('pointer-events', '');
         this.previousPagebtn.css('cursor', 'pointer');
     }
 
+    /**
+     * Construye la lógica del paginador con los datos
+     * @param {array[object]} properties 
+     * @param {boolean} newSearch 
+     */
     constructPager(properties, newSearch){
         this.clearContainer();
         this.data = properties;
@@ -93,11 +122,18 @@ class Pager{
         this.setTextPagerInfo();
     }
 
+    /**
+     * Limpia el contenedor de la información del paginador
+     * @returns {Pager}
+     */
     clearContainer(){
         this.container.html('');
         return this;
     }
 
+    /**
+     * Establece el texto de los registros actualmente en pantalla
+     */
     setTextPagerInfo(){
         this.pagerInfo.html(this.endList+' de '+this.data.length);
     }

@@ -18,14 +18,25 @@ class GeneralData {
         return allData;
     }
 
+    /**
+     * Obtiene las ciudades de la lista sin repetir
+     */
     get cities(){
         return this.getUnique('Ciudad');
     }
 
+    /**
+     * Obtiene los tipos de la lista sin repetir
+     */
     get types(){
         return this.getUnique('Tipo');
     }
 
+    /**
+     * Filtra los datos de la lista para traer datos sin repetir
+     * @param {string} index 
+     * @returns {array}
+     */
     getUnique(index){
         const uniqueValues = [];
         this.data.forEach( (element) => {
@@ -36,6 +47,11 @@ class GeneralData {
         return uniqueValues;
     }
 
+    /**
+     * Obtiene de la lista de datos un objeto por su Id
+     * @param {int} id 
+     * @returns 
+     */
     getById(id){
         if (typeof id === 'number') {
             return this.data.find(function (value, index) {

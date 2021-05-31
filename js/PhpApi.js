@@ -1,9 +1,19 @@
+/**
+ * Manejador general de las peticiónes hacia el mini API
+ */
 class PhpApi{
     
+    /**
+     * Obtiene la url general del mini API
+     */
     get url(){
         return 'http://localhost/SuplosTest_old2/BackEnd/index.php/PropertiesController/';
     }
 
+    /**
+     * Guarda un registro a través de mini API
+     * @param {int} id 
+     */
     save(id){
         var data = generalData.getById(id);
         var property = new Propertie(
@@ -20,6 +30,11 @@ class PhpApi{
         });
     }
 
+    /**
+     * Elimina un registro a través de mini API
+     * @param {int} id 
+     * @returns 
+     */
     delete(id){
         return this.consume('delete','id='+id, function(data){
             alert(data.data.message);
@@ -27,10 +42,21 @@ class PhpApi{
         });
     }
 
+    /**
+     * Obtiene los datos guardados previamente en la bd y ejecuta un callback
+     * @param {function} callback 
+     * @returns 
+     */
     read(callback){
         return this.consume('read','', callback);
     }
 
+    /**
+     * Realiza la petición hacia el mini API
+     * @param {string} method 
+     * @param {string} params 
+     * @param {function} callback 
+     */
     consume(method, params, callback){
         fetch(this.url+method+'?'+params)
         .then(function(response){

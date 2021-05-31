@@ -1,3 +1,6 @@
+/**
+ * Representación del objeto de propiedad
+ */
 class Propertie{
 
     vars = {
@@ -19,6 +22,10 @@ class Propertie{
         this.price = price;
     }
 
+    /**
+     * Recarga los datos según su id
+     * @returns {Propertie}
+     */
     refreshData(){
         let data = generalData.getById(this.id);
         this.id = data.Id;
@@ -31,14 +38,24 @@ class Propertie{
         return this;
     }
 
+    /**
+     * Obtiene le valor de la propiedad en un número entero
+     */
     get priceInt(){
         return this.price.replace(/\D/g, '');
     }
 
+    /**
+     * Obtiene la imágen de la propiedad
+     */
     get imageHtml(){
         return '<img src="./img/home.jpg" alt="home image" class="responsive-img no-select"/>';
     }
 
+    /**
+     * obtiene el html del la lista de datos de la propiedad
+     *  @returns {string}
+     */
     get listHtml(){
         var keys = Object.keys(this.vars);
 
@@ -53,6 +70,11 @@ class Propertie{
         return list;
     }
 
+    /**
+     * obtiene el html del botón de acción de cada propiedad
+     * @param {boolean} save 
+     * @returns 
+     */
     getButton(save){
         let button = '<button class="btn waves-effect waves-light" ';
         var buttonSave = 'onclick="phpApi.save('+this.id+')">Guardar';
@@ -62,6 +84,11 @@ class Propertie{
         return button;
     }
 
+    /**
+     * Obtiene el html del conendio de la pripiedad
+     * @param {boolean} save 
+     * @returns {string}
+     */
     constructHtml(save){
         var html = '<div class="property" id="property'+this.id+'">';
         html += this.imageHtml;
@@ -71,6 +98,10 @@ class Propertie{
         return html;
     }
 
+    /**
+     * Obtiene los datos de la propiedad como parámetros de URL
+     * @returns string
+     */
     toUrlParams(){
         var keys = Object.keys(this.vars);
         var urlParams = '';

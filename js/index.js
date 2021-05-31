@@ -95,6 +95,10 @@ inicializarSlider();
 loadSeeker();
 $('#submitButton').click();
 
+/**
+ * Crea un archivo csv con base en un objeto o un array
+ * @param {array|object} objArray 
+ */
 function DownloadJSON2CSV(objArray) {
   var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
 

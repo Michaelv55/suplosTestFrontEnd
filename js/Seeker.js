@@ -1,3 +1,6 @@
+/**
+ * Buscador
+ */
 class Seeker{
 
     constructor(city, type){
@@ -6,6 +9,9 @@ class Seeker{
         this.priceRange = $('#rangoPrecio');
     }
 
+    /**
+     * Obtiene lo filtros establecidos por el usuario
+     */
     get filters(){
         let prices = this.priceRange.val().split(';');
         return {
@@ -16,6 +22,11 @@ class Seeker{
         };
     }
 
+    /**
+     * Busca los datos según los filtros del usuario
+     * @param {boolean} toExcel 
+     * @returns {array[Propertie]}
+     */
     searchData(toExcel){
         const filters = this.filters;
         const dataReturn = [];
